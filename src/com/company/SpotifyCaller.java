@@ -17,7 +17,6 @@ public class SpotifyCaller {
                 .queryString("q","Weezer")
                 .queryString("type", "artist")
                 .asString();
-        System.out.println();
     }
     public static void getUserProfile(String id){
         HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/users/{user_id}")
