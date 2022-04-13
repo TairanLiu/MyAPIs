@@ -7,6 +7,8 @@ import kong.unirest.Unirest;
 import java.util.HashMap;
 
 public class SpotifyCaller {
+    //Changes
+
 
     private static String token = "BQBDPbkhFCq8OKzGkbvpEPdfJWlCX_DMsr2gR6kjukR_iID87JeL4HhVvIqn8_mzOuzbMGnB7G0vCFeBzz6Mao18Xe9mEZZemZgqNsr3E56V5OFUBU4iMw8soHkGpKDiMqWikFy72SGHB4ppchUXu-lPnwE42e0kgWY";
     public static void findArtistID(String artist){
@@ -15,6 +17,7 @@ public class SpotifyCaller {
                 .queryString("q","Weezer")
                 .queryString("type", "artist")
                 .asString();
+        System.out.println();
     }
     public static void getUserProfile(String id){
         HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/users/{user_id}")
