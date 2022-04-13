@@ -10,24 +10,32 @@ public class SpotifyCaller {
     //Changes
 
 
-    private static String token = "BQBDPbkhFCq8OKzGkbvpEPdfJWlCX_DMsr2gR6kjukR_iID87JeL4HhVvIqn8_mzOuzbMGnB7G0vCFeBzz6Mao18Xe9mEZZemZgqNsr3E56V5OFUBU4iMw8soHkGpKDiMqWikFy72SGHB4ppchUXu-lPnwE42e0kgWY";
+    private static String token = "BQCiUTyw5k93naroC0dNCk3bOro-O7hjsFQWe2dTmGIyNK1wq8ox6OGu4F6sU3F7v6Gze48NqPWrBOpvqVWT8Jqxw1WI5A9sZfW9aqfXzt-DGAW7ExG_kYGCs2AYDQ8e8f4x83cS36jgg6GkyMaBD0TYnNVrclm2c8Q";
     public static void findArtistID(String artist){
         HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/search")
                 .header("Authorization","bearer"+token)
                 .queryString("q","Weezer")
                 .queryString("type", "artist")
                 .asString();
+        System.out.println();
     }
-    public static void getUserProfile(String id){
-        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/users/{user_id}")
-                .header("Authorization","Bearer "+token)
-                .queryString("user_id",id)
+    public static void getSeveralBrowseCategory(String country, String locale, String limit, String offset){
+        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/browse/categories")
+                .header("Authorization","bearer"+token)
+                .queryString("country",country)
+                .queryString("locale", locale)
+                .queryString("limit", limit)
+                .queryString("offset", offset)
                 .asString();
     }
-    public static void getArtistRelatedArtist(String id){
-        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/artists/{id}/related-artists")
+    public static void getFeaturedPlaylists (String country, String locale, String timestamp, String limit, String offset){
+        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/browse/featured-playlists")
                 .header("Authorization","Bearer "+token)
-                .queryString("id",id)
+                .queryString("country", country)
+                .queryString("locale",locale)
+                .queryString("timestamp",timestamp)
+                .queryString("limit",limit)
+                .queryString("offset",offset)
                 .asString();
     }
     public static void sendText(String id){
@@ -50,11 +58,10 @@ public class SpotifyCaller {
                 .header("Authorization","bearer"+token)
                 .asString();
     }
-    public static void getAlbumTracks(String id, String market, String limit,String offset){
-        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/albums/{id}/tracks")
+    public static void getNewReleases(String country, String limit,String offset){
+        HttpResponse<String> result = Unirest.get("https://api.spotify.com/v1/browse/new-releases")
                 .header("Authorization","bearer"+token)
-                .queryString("id",id)
-                .queryString("market", market)
+                .queryString("country",country)
                 .queryString("limit",limit)
                 .queryString("offset", offset)
                 .asString();
