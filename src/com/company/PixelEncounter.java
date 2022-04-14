@@ -1,6 +1,7 @@
 package com.company;
 
 import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 
 public class PixelEncounter {
@@ -25,7 +26,7 @@ public class PixelEncounter {
                 .asString();
         System.out.println(result.getBody());
     }
-    public static void monsterWithRandomPattern (int fillType, String backgroundColor, String primaryColor, String secondaryColor,boolean randomColor){
+    /*public static void monsterWithRandomPattern (int fillType, String backgroundColor, String primaryColor, String secondaryColor,boolean randomColor){
         HttpResponse<String> result = Unirest.get("https://app.pixelencounter.com/api/basic/svgmonsters")
                 .queryString("fillType",fillType)
                 .queryString("backgroundColor", backgroundColor)
@@ -34,6 +35,6 @@ public class PixelEncounter {
                 .queryString("randomColor",randomColor)
                 .asString();
         System.out.println(result.getBody());
-    }
+    }*/
 
 }
