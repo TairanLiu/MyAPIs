@@ -26,15 +26,19 @@ public class PixelEncounter {
                 .asString();
         System.out.println(result.getBody());
     }
-    /*public static void monsterWithRandomPattern (int fillType, String backgroundColor, String primaryColor, String secondaryColor,boolean randomColor){
-        HttpResponse<String> result = Unirest.get("https://app.pixelencounter.com/api/basic/svgmonsters")
-                .queryString("fillType",fillType)
-                .queryString("backgroundColor", backgroundColor)
-                .queryString("primaryColor", primaryColor)
-                .queryString("secondaryColor",secondaryColor)
-                .queryString("randomColor",randomColor)
+
+    public static void randomDog (){
+        /*HttpResponse<JsonNode> response = Unirest.post("https://random.dog/")//URL, endpoint
+                .asJson();*/
+        HttpResponse<String> result = Unirest.get("https://random.dog/")
                 .asString();
         System.out.println(result.getBody());
-    }*/
-
+        //System.out.println(response.getStatus());
+        //System.out.println(response.getBody());
+    }
+    public static void comic(){
+        HttpResponse<String> result = Unirest.get("https://xkcd.com/info.0.json")
+                .asString();
+        System.out.println(result.getBody());
+    }
 }

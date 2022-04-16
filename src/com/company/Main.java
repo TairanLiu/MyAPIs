@@ -14,6 +14,7 @@ public class Main {
         //PixelEncounter.randomPlanet("65","65",65);
         //PixelEncounter.monster();
         //PixelEncounter.pageOfMonsters(65,1,99);
-        //PixelEncounter.monsterWithRandomPattern(5,"EAF2FF","c0ebd7","f98d74",true);//
+        //PixelEncounter.randomDog();
+        //PixelEncounter.comic();
     }
 }
